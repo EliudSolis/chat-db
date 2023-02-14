@@ -22,3 +22,4 @@ const Participants = db.define('participants', {
 })
 
 module.exports = Participants
+

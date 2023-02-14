@@ -1,22 +1,26 @@
 const { DataTypes } = require('sequelize') //Los tipos de datos para la traducción
 const db = require('../utils/database')
 
-const Conversations = db.define('conversations', {
+const Messages = db.define('messages', {
     id: {
         type: DataTypes.UUID,
-        primaryKey: true,
-    }, 
-    content: {
-        type: DataTypes.STRING,        
+        primaryKey: true
     },
-    participantsId: {
+    profileImage: {
+        type: DataTypes.STRING,
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    createdBy: {
         type: DataTypes.UUID,
         allowNull: false
     },
-    status: {
-        type: DataTypes.STRING,
-        allowNull: false
+    isGroup: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 })
 
-module.exports = Conversations
+module.exports = Messages
